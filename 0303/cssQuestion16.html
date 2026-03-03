@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        main {
+            width: 336px;
+            height: 148px;
+            border: 1px solid #C2C2C2;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        button {
+            height: 48px;
+            width: 288px;
+            background-color: #17B75E;
+            font-weight: 700;
+            font-size: 20px;
+            color: #fff;
+            border: 0;
+            border-radius: 8px;
+        }
+
+        div {
+            display: flex;
+            justify-content: center;
+        }
+
+        p {
+            margin: 5px 0;
+        }
+
+        div>p {
+            padding: 0 5px;
+            border-right: 1px solid #D3D5D7;
+        }
+
+        div>p:nth-of-type(3) {
+            border: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <p>사이트를 더 안전하고 편리하게 이용하세요.</p>
+        <button>로그인</button>
+        <div>
+            <p>아이디 찾기</p>
+            <p>비밀번호 찾기</p>
+            <p>회원가입</p>
+        </div>
+    </main>
+</body>
+
+</html>
