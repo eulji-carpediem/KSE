@@ -5,14 +5,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        h3 {
+            font-weight: 700;
+            font-size: 24px;
+        }
+
+        input {
+            width: 278px;
+            height: 40px;
+            border-radius: 8px;
+            margin-top: 8px;
+            margin-bottom: 14px;
+            border: 1px solid #C3C3C3;
+        }
+
+        label {
+            font-weight: 400;
+            font-size: 16px;
+        }
+
+        input[type='submit'] {
+            height: 48px;
+            background-color: #17B75E;
+            font-weight: 700;
+            font-size: 20px;
+            color: #fff;
+            border: 0;
+            border-radius: 8px;
+        }
+    </style>
 </head>
 
 <body>
     <h3>로그인</h3>
-    <label for="id">아이디</label>
-    <input type="text" id="id">
-    <label for="password">비밀번호</label>
-    <input type="password" id="password">
+    <form action="#" method="get">
+        <label for="id">아이디</label><br>
+        <input type="text" id="id"><br>
+        <label for="password">비밀번호</label><br>
+        <input type="password" id="password"><br>
+        <input type="submit" value="로그인"><br>
+    </form>
 </body>
 
 </html>
