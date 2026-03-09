@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            border: 2px solid blue;
+            padding: 5px;
+            margin: 5px;
+        }
+
+        div {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">기존 내용</div>
+
+    <script>
+        const $box = document.querySelector('.box');
+        const htmlText = (color, fontColor, text) => `<div style= "background-color: ${color}; color: ${fontColor};">${text}</div>`
+
+        $box.insertAdjacentHTML("beforebegin", htmlText('red', 'white', 'beforebegin - 앞 형제'));
+        $box.insertAdjacentHTML("afterbegin", htmlText('yellow', 'black', 'afterbegin - 첫 자식'));
+        $box.insertAdjacentHTML("beforeend", htmlText('purple', 'white', 'beforeend - 마지막 자식'));
+        $box.insertAdjacentHTML("afterend", htmlText('green', 'white', 'afterend - 뒤 형제'));
+
+    </script>
+</body>
+
+</html>

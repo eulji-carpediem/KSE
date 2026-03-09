@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main>div {
+            background-color: pink;
+            margin: 5px;
+            color: white;
+            padding: 5px;
+        }
+
+        .green {
+            background-color: greenyellow !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="box1">교체될 요소 1</div>
+        <div class="box2">교체될 요소 2</div>
+        <div class="box3">교체될 요소 3</div>
+    </div>
+
+    <button onclick="box1Click();">요소로 교체</button>
+    <button onclick="box2Click();">텍스트로 교체</button>
+    <button onclick="box3Click();">HTML로 교체</button>
+
+    <script>
+        const $box1 = document.querySelector('.box1');
+        const $box2 = document.querySelector('.box2');
+        const $box3 = document.querySelector('.box3');
+
+        function box1Click() {
+            const $replaceBox1 = document.createElement('div');
+            $replaceBox1.classList.add('green');
+            $replaceBox1.textContent = '새로운 요소로 교체됨'
+            $box1.replaceWith($replaceBox1)
+        }
+        function box2Click() {
+            $box2.replaceWith('단순 텍스트로 교체됨')
+        }
+        function box3Click() {
+            const $replaceBox3 = document.createElement('div');
+            $replaceBox3.innerHTML = '<b>HTML 요소로 교체됨</b>';
+            $replaceBox3.classList.add('green');
+            $box3.replaceWith($replaceBox3);
+        }
+    </script>
+</body>
+
+</html>

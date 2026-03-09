@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            background-color: rgb(255, 255, 231);
+            border: 1px solid gray;
+        }
+
+        button:hover {
+            background-color: rgb(240, 240, 223);
+            border: 1px solid rgb(82, 82, 82);
+        }
+
+        .parent {
+            border: 2px solid gray;
+            padding: 5px;
+
+        }
+
+        .child {
+            border: 2px solid blue;
+            padding: 5px;
+        }
+
+        .yellowBox {
+            background-color: yellow;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="child">기존 자식1 기존 자식2</div>
+        <p>다른 형제 요소</p>
+    </div>
+    <button onclick="newDiv('before');">before() 테스트</button>
+    <button onclick="newDiv('after');">after() 테스트</button>
+    <button onclick="newDiv('prepend');">prepend() 테스트</button>
+    <button onclick="newDiv('append');">append() 테스트</button>
+    <button onclick="newDiv('appendChild');">appendChild() 테스트</button>
+    <button onclick="textBtn();">문자열 삽입 비교</button>
+
+    <script>
+        const $child = document.querySelector('.child');
+
+        function newDiv(place) {
+            const $newDiv = document.createElement('div');
+            $newDiv.textContent = `${place}()로 추가된 요소`;
+            $newDiv.classList.add('yellowBox');
+            $child[place]($newDiv);
+        }
+
+        function textBtn() {
+            $child.append('append()로 추가된 문자열');
+            $child.prepend('123');
+        }
+    </script>
+</body>
+
+</html>

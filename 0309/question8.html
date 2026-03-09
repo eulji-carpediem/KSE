@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body>div {
+            border: 2px solid black;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .real {
+            border: 2px solid blue;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div class="real">
+            <h2>원본 요소</h2>
+            <p>자식 요소 1</p>
+            <p>자식 요소 2</p>
+        </div>
+    </div>
+    <div class="clone">
+        <h2>복제된 요소들이 여기 추가됩니다.</h2>
+    </div>
+    <button onclick="falseClick();">파라미터: false</button>
+    <button onclick="trueClick();">파라미터: true</button>
+    <button onclick="removeClick();">복제본 제거</button>
+    <script>
+        const $real = document.querySelector('.real');
+        const $clone = document.querySelector('.clone');
+        function falseClick() {
+            const $newCloneDiv = $real.cloneNode(false);
+            $newCloneDiv.textContent = '파라미터 : false';
+            $newCloneDiv.classList.add('clones');
+            $clone.appendChild($newCloneDiv);
+        }
+
+        function trueClick() {
+            const $newCloneDiv = $real.cloneNode(true);
+            $newCloneDiv.classList.add('clones');
+            $clone.appendChild($newCloneDiv);
+        }
+
+        function removeClick() {
+            const $clones = document.querySelectorAll('.clones');
+            console.log($clones);
+            [...$clones].forEach((clone) => {
+                clone.remove();
+
+            });
+        }
+
+
+
+    </script>
+</body>
+
+</html>

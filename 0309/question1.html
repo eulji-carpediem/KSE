@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>기존 내용</h1>
+    <br>
+    <button onclick="clickCreateElement();">요소 생성하기</button>
+    <script>
+        const clickCreateElement = () => {
+            const $h1 = document.querySelector('h1');
+            const $newP = document.createElement('p');
+            const $newSpan = document.createElement('span');
+            $newP.textContent = '안녕하세요! createElement로 만든 요소입니다.';
+            $newSpan.textContent = '이 텍스트는 span입니다.';
+
+            const fragment = document.createDocumentFragment();
+            fragment.appendChild($newP);
+            fragment.appendChild($newSpan);
+
+            console.log('adf');
+
+            $h1.after(fragment);
+        }
+    </script>
+</body>
+
+</html>

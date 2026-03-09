@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main {
+            border: 2px solid black;
+            margin: 5px;
+            padding: 5px;
+        }
+
+        .main>div {
+            background-color: pink;
+            border: 1px solid red;
+            padding: 5px;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="box1">삭제할 항목 1</div>
+        <div class="box2">삭제할 항목 2</div>
+        <div class="box3">삭제할 항목 3</div>
+        <div class="box4">삭제할 항목 4</div>
+    </div>
+
+    <button onclick="removeBox(1);">첫 번째 삭제</button>
+    <button onclick="removeBox(2);">두 번째 삭제</button>
+    <button onclick="removeBox(3);">세 번째 삭제</button>
+    <button onclick="removeBox(4);">마지막 삭제</button>
+
+    <script>
+        function removeBox(i) {
+            const $main = document.querySelector('.main');
+            const $box = document.querySelector(`.box${i}`);
+            $main.removeChild($box);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main {
+            border: 2px solid blue;
+            padding: 5px;
+        }
+
+        .main>div,
+        .main>span {
+            background-color: red;
+            color: white;
+        }
+
+        .green {
+            background-color: greenyellow !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="box1">교체될 자식 1</div>
+        <div class="box2">교체될 자식 2</div>
+        <div class="box3">교체될 자식 3</div>
+    </div>
+    <button onclick="box1Click();">첫 번째 교체</button>
+    <button onclick="box2Click();">두 번째 교체</button>
+    <button onclick="box3Click();">세 번째 교체</button>
+    <script>
+        const $main = document.querySelector('.main');
+        const $box1 = document.querySelector('.box1');
+        const $box2 = document.querySelector('.box2');
+        const $box3 = document.querySelector('.box3');
+
+        function box1Click() {
+            const $newBox = document.createElement('div');
+            $newBox.textContent = '새로운 첫 번째 자식';
+            $newBox.classList.add('green')
+            $main.replaceChild($newBox, $box1);
+        }
+
+        function box2Click() {
+            const $newBox = document.createElement('span');
+            $newBox.textContent = '새로운 두 번째 자식';
+            $newBox.classList.add('green')
+            $main.replaceChild($newBox, $box2);
+        }
+
+        function box3Click() {
+            const $newBox = document.createElement('div');
+            $newBox.innerHTML = '<b>새로운 세 번째 자식</b>';
+            $newBox.classList.add('green')
+            $main.replaceChild($newBox, $box3);
+        }
+
+    </script>
+</body>
+
+</html>
