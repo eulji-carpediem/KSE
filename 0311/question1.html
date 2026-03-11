@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0 250px;
+            padding: 0;
+        }
+
+        form {
+
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        input,
+        select {
+            border: 2px solid black;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 5px 0;
+            outline: none;
+        }
+
+        label {
+            margin-top: 10px;
+        }
+
+        .focus {
+            border: 2px solid blue;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>사용자 입력 양식 이벤트 연습하기</h1>
+    <form method="get">
+        <label>이름</label>
+        <input placeholder="이름을 입력하세요" required>
+        <label>이메일</label>
+        <input placeholder="example@domain.com" required>
+        <label>성별</label>
+        <div>
+            <input id="male" type="radio" name="gender" checked>
+            <label for="male">남자</label>
+            <input id="female" type="radio" name="gender">
+            <label for="female">여자</label>
+        </div>
+        <label>참여 일자 선택</label>
+        <select>
+            <option hidden value="">--날짜 선택--</option>
+            <option value="3/11">3월 11일</option>
+            <option value="3/12">3월 12일</option>
+            <option value="3/13">3월 13일</option>
+        </select>
+        <label>요청 사항</label>
+        <textarea placeholder="요청 사항을 입력하세요" cols="50" rows="10" maxlength="500" style="resize: none;"></textarea>
+        <p class="length">0/500</p>
+        <div>
+            <input type="checkbox" required class="check">
+            <label>개인정보 수집에 동의합니다.</label>
+        </div>
+
+        <button type="submit">신청하기</button>
+    </form>
+
+    <script>
+        const $form = document.querySelector('form');
+
+        $form.addEventListener('focusin', (e) => {
+            e.target.classList.add('focus');
+        })
+
+        $form.addEventListener('focusout', (e) => {
+            e.target.classList.remove('focus');
+        })
+
+        const $select = document.querySelector('select');
+        const $button = document.querySelector('button');
+
+        $form.addEventListener('submit', (e) => {
+            if (!$select.value) {
+                e.preventDefault();
+                alert('참여일자를 선택해주세요!')
+            }
+        })
+
+        const $textarea = document.querySelector('textarea');
+        const $length = document.querySelector('.length');
+        $textarea.addEventListener('change', (e) => {
+            let len = e.target.value.trim().length;
+            $length.innerText = `${len}/500`;
+        })
+
+        const 
+    </script>
+</body>
+
+</html>
