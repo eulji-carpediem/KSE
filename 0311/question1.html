@@ -31,6 +31,11 @@
             outline: none;
         }
 
+        textarea {
+            outline: none;
+
+        }
+
         label {
             margin-top: 10px;
         }
@@ -43,11 +48,11 @@
 
 <body>
     <h1>사용자 입력 양식 이벤트 연습하기</h1>
-    <form method="get">
+    <form method="get" name="pratice">
         <label>이름</label>
         <input placeholder="이름을 입력하세요" required>
         <label>이메일</label>
-        <input placeholder="example@domain.com" required>
+        <input placeholder="example@domain.com" required type="email">
         <label>성별</label>
         <div>
             <input id="male" type="radio" name="gender" checked>
@@ -65,7 +70,7 @@
         <label>요청 사항</label>
         <textarea placeholder="요청 사항을 입력하세요" cols="50" rows="10" maxlength="500" style="resize: none;"></textarea>
         <p class="length">0/500</p>
-        <div>
+        <div class="checkL">
             <input type="checkbox" required class="check">
             <label>개인정보 수집에 동의합니다.</label>
         </div>
@@ -74,14 +79,16 @@
     </form>
 
     <script>
-        const $form = document.querySelector('form');
+        const $form = document.forms.pratice;
 
         $form.addEventListener('focusin', (e) => {
             e.target.classList.add('focus');
+            console.log(e.target);
         })
 
         $form.addEventListener('focusout', (e) => {
             e.target.classList.remove('focus');
+            console.log(e.target);
         })
 
         const $select = document.querySelector('select');
@@ -101,7 +108,16 @@
             $length.innerText = `${len}/500`;
         })
 
-        const 
+        const $check = document.querySelector('.check');
+        const $checkL = document.querySelector('.checkL');
+        $check.addEventListener('click', (e) => {
+            if ($check.checked === true) {
+                console.log($checkL);
+                $checkL.style.backgroundColor = 'lightgreen';
+            } else {
+                $checkL.style.backgroundColor = 'white';
+            }
+        })
     </script>
 </body>
 
